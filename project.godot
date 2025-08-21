@@ -1,0 +1,43 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ms pixel"
+config/description="my simple pixel"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Util="*res://Scripts/util.gd"
+
+[debug]
+
+gdscript/warnings/shadowed_variable=2
+gdscript/warnings/shadowed_variable_base_class=2
+gdscript/warnings/shadowed_global_identifier=2
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/missing_tool=2
+
+[file_customization]
+
+folder_colors={
+"res://Entities/": "orange",
+"res://Scenes/": "red",
+"res://Scripts/": "green",
+"res://Sprites/": "yellow",
+"res://Textures/": "purple"
+}
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
