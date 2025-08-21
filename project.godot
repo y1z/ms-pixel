@@ -12,6 +12,7 @@ config_version=5
 
 config/name="ms pixel"
 config/description="my simple pixel"
+run/main_scene="uid://dcj8i1iuuxwol"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

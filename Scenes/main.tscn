@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://dcj8i1iuuxwol"]
+[gd_scene load_steps=3 format=3 uid="uid://dcj8i1iuuxwol"]
+
+[ext_resource type="Script" uid="uid://cs3lxpnvlc3hd" path="res://Scripts/test_create_image.gd" id="1_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://bqxsdths03efw" path="res://Sprites/icon2.svg" id="1_jjgbg"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_bo1nx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="main_sprite" type="Sprite2D" parent="Control"]
+unique_name_in_owner = true
+position = Vector2(117, 106)
+texture = ExtResource("1_jjgbg")
