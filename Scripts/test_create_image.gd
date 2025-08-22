@@ -6,8 +6,9 @@ var sprite : Sprite2D
 
 func _ready() -> void:
 	raw_image = Image.create(128,128,true,Image.Format.FORMAT_RGBA8)
-	for i in range(0,10):
-		raw_image.set_pixel(i,i,Color.INDIAN_RED)
+	for i in range(0,raw_image.get_height()):
+		for j in range(0,raw_image.get_width()):
+			raw_image.set_pixel(i,j,Color.INDIAN_RED)
 
 	raw_image.get_used_rect()
 	image_texture = ImageTexture.create_from_image(raw_image);
