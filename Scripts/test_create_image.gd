@@ -28,7 +28,13 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if  event.is_action_pressed("l_click"):
 		var mouse_pos := to_local(get_global_mouse_position())
-		print( "clicked inside raw_image %s" % sprite_rect.has_point(mouse_pos ))
+		var is_inside_sprite :bool =sprite_rect.has_point(mouse_pos );
+		print( "clicked inside raw_image %s" % is_inside_sprite)
+		if !is_inside_sprite : return;
+		
+		var pos_inside_rect:Vector2 = mouse_pos - sprite_rect.position
+		raw_image.set_pixelv(pos_inside_rect, Color.AQUAMARINE)
+		image_texture.set_image(raw_image)
 		pass
 		
 		pass
