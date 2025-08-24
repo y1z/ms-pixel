@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcj8i1iuuxwol"]
+[gd_scene load_steps=5 format=3 uid="uid://dcj8i1iuuxwol"]
 
 [ext_resource type="Script" uid="uid://cs3lxpnvlc3hd" path="res://Scripts/test_create_image.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://bqxsdths03efw" path="res://Sprites/icon2.svg" id="1_jjgbg"]
+[ext_resource type="Texture2D" uid="uid://bmhj0i2o5i7ga" path="res://Textures/icon_texture.svg" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cjcdpcj4atgb8" path="res://Entities/pixel.tscn" id="4_jjvhh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_bo1nx")
@@ -15,3 +17,17 @@ offset_bottom = 40.0
 unique_name_in_owner = true
 position = Vector2(117, 106)
 texture = ExtResource("1_jjgbg")
+
+[node name="scene_camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+
+[node name="IconTexture" type="Sprite2D" parent="."]
+position = Vector2(368, 239)
+texture = ExtResource("3_8gbba")
+
+[node name="IconTexture2" type="Sprite2D" parent="."]
+position = Vector2(43, 268)
+texture = ExtResource("3_8gbba")
+
+[node name="Pixel" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(266, 91)

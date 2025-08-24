@@ -7,16 +7,18 @@ const DEFAULT_HEIGHT :int = 128
 var raw_image : Image
 var image_texture : ImageTexture
 var sprite : Sprite2D
-@export var currrent_color :Color 
+@export var current_color :Color 
 var sprite_rect : Rect2
+var scene_camera : Camera2D
 
 func _ready() -> void:
 	raw_image = Image.create_empty(DEFAULT_WIDTH , DEFAULT_HEIGHT, true , Image.Format.FORMAT_RGBA8)
-	currrent_color = Color.INDIAN_RED
+	current_color = Color.INDIAN_RED
+	scene_camera = $%scene_camera
 	
 	for i in raw_image.get_height():
 		for j in raw_image.get_width():
-			raw_image.set_pixel(i,j, currrent_color)
+			raw_image.set_pixel(i,j, current_color)
 
 	raw_image.get_used_rect()
 	image_texture = ImageTexture.create_from_image(raw_image);
@@ -32,13 +34,26 @@ func _input(event: InputEvent) -> void:
 		print( "clicked inside raw_image %s" % is_inside_sprite)
 		if !is_inside_sprite : return;
 		
-		var pos_inside_rect:Vector2 = mouse_pos - sprite_rect.position
-		raw_image.set_pixelv(pos_inside_rect, Color.AQUAMARINE)
-		image_texture.set_image(raw_image)
-		pass
+		match current_color:
+			Color.INDIAN_RED:
+				current_color = Color.SPRING_GREEN
+			Color.SPRING_GREEN:
+				current_color = Color.INDIAN_RED
 		
+		change_color(current_color)
 		pass
+	
+	
 	pass
+	
+func _physics_process(delta: float) -> void:
+	
+	if Input.is_action_pressed("move_down"):
+		scene_camera.offset -= (Vector2(0,-1)  * 100.0)* delta
+		
+	if Input.is_action_pressed("move_up"):
+		scene_camera.offset += (Vector2(0,-1)  * 100.0)* delta
+	
 
 func _draw() -> void:
 	if OS.is_debug_build():
@@ -49,4 +64,11 @@ func get_sprite_hitbox() -> Rect2:
 	var sprite_size := Vector2(sprite.texture.get_width(),sprite.texture.get_height())
 	var offset :Vector2 = Vector2(sprite_size.x * 0.5,sprite_size.y * 0.5)
 	return Rect2(sprite.position - offset,sprite_size) ;
+	
+func change_color(new_color : Color) -> void:
+	for i in raw_image.get_height():
+		for j in raw_image.get_width():
+			raw_image.set_pixel(i,j, new_color)
+		image_texture.set_image(raw_image)
+		sprite.texture = image_texture
 	
