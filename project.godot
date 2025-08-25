@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Util="*res://Scripts/util.gd"
+UserData="*res://Scripts/user_data.gd"
 
 [debug]
 
