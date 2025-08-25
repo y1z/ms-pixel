@@ -31,7 +31,6 @@ func _input(event: InputEvent) -> void:
 	if  event.is_action_pressed("l_click"):
 		var mouse_pos := to_local(get_global_mouse_position())
 		var is_inside_sprite :bool =sprite_rect.has_point(mouse_pos );
-		print( "clicked inside raw_image %s" % is_inside_sprite)
 		if !is_inside_sprite : return;
 		
 		match current_color:
