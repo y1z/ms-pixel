@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cs3lxpnvlc3hd" path="res://Scripts/test_create_image.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://bqxsdths03efw" path="res://Sprites/icon2.svg" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://bmhj0i2o5i7ga" path="res://Textures/icon_texture.svg" id="3_8gbba"]
-[ext_resource type="StyleBox" uid="uid://bynyywx5h71e7" path="res://Scenes/h_scroll_bar_theme.tres" id="3_21xkr"]
-[ext_resource type="Theme" uid="uid://bealeuncdmy3b" path="res://Entities/basic_theme.tres" id="3_kry3j"]
+[ext_resource type="StyleBox" uid="uid://bynyywx5h71e7" path="res://Themes/h_scroll_bar_theme.tres" id="3_21xkr"]
+[ext_resource type="Theme" uid="uid://bealeuncdmy3b" path="res://Themes/basic_theme.tres" id="3_kry3j"]
 [ext_resource type="PackedScene" uid="uid://cjcdpcj4atgb8" path="res://Entities/pixel.tscn" id="4_jjvhh"]
 
 [sub_resource type="Theme" id="Theme_jjvhh"]
@@ -58,6 +58,15 @@ script = ExtResource("1_bo1nx")
 
 [node name="Pixel" parent="." instance=ExtResource("4_jjvhh")]
 position = Vector2(266, 91)
+
+[node name="Pixel2" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(204, 198)
+
+[node name="Pixel3" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(149, -43)
+
+[node name="Pixel4" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(502, 91)
 
 [node name="scene_camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
