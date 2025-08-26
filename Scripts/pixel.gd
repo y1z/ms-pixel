@@ -32,7 +32,7 @@ func _input(event: InputEvent) -> void:
 		#print("is insde hitbox %s" % is_inside_hitbox)
 		var inside_sprite_pos:Vector2 = mouse_pos - sprite_rect.position
 		@warning_ignore_start("narrowing_conversion")
-		raw_image.set_pixel(inside_sprite_pos.x,inside_sprite_pos.y,Color.GOLD)
+		raw_image.set_pixel(inside_sprite_pos.x, inside_sprite_pos.y, Color.GOLD)
 		@warning_ignore_restore("narrowing_conversion")
 		image_texture.update(raw_image)
 		self.texture = image_texture
