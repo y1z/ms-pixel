@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcj8i1iuuxwol"]
+[gd_scene load_steps=12 format=3 uid="uid://dcj8i1iuuxwol"]
 
 [ext_resource type="Script" uid="uid://cs3lxpnvlc3hd" path="res://Scripts/test_create_image.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://bqxsdths03efw" path="res://Sprites/icon2.svg" id="1_jjgbg"]
@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://bynyywx5h71e7" path="res://Themes/h_scroll_bar_theme.tres" id="3_21xkr"]
 [ext_resource type="Theme" uid="uid://bealeuncdmy3b" path="res://Themes/basic_theme.tres" id="3_kry3j"]
 [ext_resource type="PackedScene" uid="uid://cjcdpcj4atgb8" path="res://Entities/pixel.tscn" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://b6gggrfm4eoxx" path="res://Scripts/canvas.gd" id="7_6bp64"]
 
 [sub_resource type="Theme" id="Theme_jjvhh"]
 
@@ -202,3 +203,6 @@ texture = ExtResource("3_8gbba")
 unique_name_in_owner = true
 position = Vector2(117, 106)
 texture = ExtResource("1_jjgbg")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("7_6bp64")
