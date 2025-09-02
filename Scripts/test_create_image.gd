@@ -46,13 +46,13 @@ func _input(event: InputEvent) -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
-	
-	if Input.is_action_pressed("move_down"):
-		scene_camera.offset -= (Vector2(0,-1)  * 100.0)* delta
+	##
+	#if Input.is_action_pressed("move_down"):
+		#scene_camera.offset -= (Vector2(0,-1)  * 100.0)* delta
 		
-	if Input.is_action_pressed("move_up"):
-		scene_camera.offset += (Vector2(0,-1)  * 100.0)* delta
-	
+	#if Input.is_action_pressed("move_up"):
+		#scene_camera.offset += (Vector2(0,-1)  * 100.0)* delta
+	pass
 
 func _draw() -> void:
 	if OS.is_debug_build():
