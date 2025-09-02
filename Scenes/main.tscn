@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcj8i1iuuxwol"]
+[gd_scene load_steps=13 format=3 uid="uid://dcj8i1iuuxwol"]
 
 [ext_resource type="Script" uid="uid://cs3lxpnvlc3hd" path="res://Scripts/test_create_image.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://bqxsdths03efw" path="res://Sprites/icon2.svg" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://bmhj0i2o5i7ga" path="res://Textures/icon_texture.svg" id="3_8gbba"]
 [ext_resource type="StyleBox" uid="uid://bynyywx5h71e7" path="res://Themes/h_scroll_bar_theme.tres" id="3_21xkr"]
+[ext_resource type="Script" uid="uid://shcvhalbb7kh" path="res://Scripts/ms_pixel_camera.gd" id="3_344ge"]
 [ext_resource type="Theme" uid="uid://bealeuncdmy3b" path="res://Themes/basic_theme.tres" id="3_kry3j"]
 [ext_resource type="PackedScene" uid="uid://cjcdpcj4atgb8" path="res://Entities/pixel.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://b6gggrfm4eoxx" path="res://Scripts/canvas.gd" id="7_6bp64"]
@@ -71,6 +72,8 @@ position = Vector2(502, 91)
 
 [node name="scene_camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
+zoom = Vector2(2.12, 2.12)
+script = ExtResource("3_344ge")
 
 [node name="Control" type="Control" parent="scene_camera"]
 layout_mode = 3

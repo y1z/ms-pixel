@@ -11,17 +11,18 @@ var sprite_rect : Rect2
 
 func _ready() -> void:
 	raw_image = Image.create_empty(DEFAULT_WIDTH , DEFAULT_HEIGHT, true , Image.Format.FORMAT_RGBA8)
-	image_texture = ImageTexture.create_from_image(raw_image)
-	self.texture = image_texture
+	image_texture = ImageTexture.new()
+	image_texture = ImageTexture.create_from_image(raw_image )
 	current_color = Color.BLACK
-	sprite_rect = get_sprite_hitbox()
 	
 	for i in raw_image.get_height():
 		for j in raw_image.get_width():
 			raw_image.set_pixel(i,j, current_color)
 	
-	image_texture  =ImageTexture.create_from_image(raw_image)
+	
+	image_texture.update(raw_image)
 	self.texture = image_texture
+	sprite_rect = get_sprite_hitbox()
 	pass
 
 func _input(event: InputEvent) -> void:
