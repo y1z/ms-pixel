@@ -1,65 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcj8i1iuuxwol"]
+[gd_scene load_steps=8 format=3 uid="uid://dcj8i1iuuxwol"]
 
-[ext_resource type="Script" uid="uid://cs3lxpnvlc3hd" path="res://Scripts/test_create_image.gd" id="1_bo1nx"]
+[ext_resource type="Script" uid="uid://fuagb7papkb1" path="res://Scripts/main_manager.gd" id="1_6bp64"]
 [ext_resource type="Texture2D" uid="uid://bqxsdths03efw" path="res://Sprites/icon2.svg" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://bmhj0i2o5i7ga" path="res://Textures/icon_texture.svg" id="3_8gbba"]
-[ext_resource type="StyleBox" uid="uid://bynyywx5h71e7" path="res://Themes/h_scroll_bar_theme.tres" id="3_21xkr"]
 [ext_resource type="Script" uid="uid://shcvhalbb7kh" path="res://Scripts/ms_pixel_camera.gd" id="3_344ge"]
-[ext_resource type="Theme" uid="uid://bealeuncdmy3b" path="res://Themes/basic_theme.tres" id="3_kry3j"]
+[ext_resource type="PackedScene" uid="uid://08m12oqbyi11" path="res://Scenes/UI/test_ui.tscn" id="4_6bp64"]
 [ext_resource type="PackedScene" uid="uid://cjcdpcj4atgb8" path="res://Entities/pixel.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://b6gggrfm4eoxx" path="res://Scripts/canvas.gd" id="7_6bp64"]
 
-[sub_resource type="Theme" id="Theme_jjvhh"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21xkr"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.7176471)
-border_width_left = 2
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 6
-expand_margin_left = 1.0
-expand_margin_right = 1.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_344ge"]
-content_margin_left = 0.0
-content_margin_top = 4.0
-content_margin_right = 0.0
-content_margin_bottom = 4.0
-bg_color = Color(0.101960786, 0.8352941, 0.101960786, 0.6)
-border_width_left = 5
-border_width_right = 70
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 6
-expand_margin_right = 70.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bp64"]
-content_margin_left = 0.0
-content_margin_top = 4.0
-content_margin_right = 0.0
-content_margin_bottom = 4.0
-bg_color = Color(0.06666667, 0.101960786, 0.7411765, 0.6)
-border_width_right = 70
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 6
-expand_margin_right = 68.0
-
 [node name="Main" type="Node2D"]
-script = ExtResource("1_bo1nx")
+script = ExtResource("1_6bp64")
 
-[node name="Pixel" parent="." instance=ExtResource("4_jjvhh")]
-position = Vector2(266, 91)
+[node name="user_data" type="Node" parent="."]
 
 [node name="Pixel2" parent="." instance=ExtResource("4_jjvhh")]
 position = Vector2(204, 198)
@@ -75,124 +27,8 @@ unique_name_in_owner = true
 zoom = Vector2(2.12, 2.12)
 script = ExtResource("3_344ge")
 
-[node name="Control" type="Control" parent="scene_camera"]
-layout_mode = 3
-offset_right = 1152.0
-offset_bottom = 636.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="scene_camera/Control"]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="scene_camera/Control/CanvasLayer"]
-anchors_preset = -1
-offset_right = 234.0
-offset_bottom = 350.0
-theme_override_constants/separation = 25
-
-[node name="red container" type="HBoxContainer" parent="scene_camera/Control/CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 225
-alignment = 1
-
-[node name="horizontal bar control" type="Control" parent="scene_camera/Control/CanvasLayer/VBoxContainer/red container"]
-layout_mode = 2
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-theme = SubResource("Theme_jjvhh")
-
-[node name="HScrollBar" type="HScrollBar" parent="scene_camera/Control/CanvasLayer/VBoxContainer/red container/horizontal bar control"]
-layout_mode = 1
-anchors_preset = -1
-offset_right = 214.0
-offset_bottom = 19.0
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-accessibility_live = 1
-theme_override_styles/scroll = ExtResource("3_21xkr")
-theme_override_styles/grabber = SubResource("StyleBoxFlat_21xkr")
-page = 10.0
-
-[node name="Text control" type="Control" parent="scene_camera/Control/CanvasLayer/VBoxContainer/red container"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="scene_camera/Control/CanvasLayer/VBoxContainer/red container/Text control"]
-layout_mode = 1
-anchors_preset = -1
-offset_right = 70.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Red"
-
-[node name="green container" type="HBoxContainer" parent="scene_camera/Control/CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 225
-alignment = 1
-
-[node name="horizontal bar control" type="Control" parent="scene_camera/Control/CanvasLayer/VBoxContainer/green container"]
-layout_mode = 2
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-theme = SubResource("Theme_jjvhh")
-
-[node name="HScrollBar" type="HScrollBar" parent="scene_camera/Control/CanvasLayer/VBoxContainer/green container/horizontal bar control"]
-layout_mode = 1
-anchors_preset = -1
-offset_right = 213.0
-offset_bottom = 19.0
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-accessibility_live = 1
-theme = ExtResource("3_kry3j")
-theme_override_styles/scroll = SubResource("StyleBoxFlat_344ge")
-theme_override_styles/grabber = SubResource("StyleBoxFlat_21xkr")
-page = 10.0
-
-[node name="Text control" type="Control" parent="scene_camera/Control/CanvasLayer/VBoxContainer/green container"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="scene_camera/Control/CanvasLayer/VBoxContainer/green container/Text control"]
-layout_mode = 1
-anchors_preset = -1
-offset_right = 70.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0.80784315, 0, 1)
-text = "Green"
-
-[node name="blue container" type="HBoxContainer" parent="scene_camera/Control/CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 225
-alignment = 1
-
-[node name="horizontal bar control" type="Control" parent="scene_camera/Control/CanvasLayer/VBoxContainer/blue container"]
-layout_mode = 2
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-theme = SubResource("Theme_jjvhh")
-
-[node name="HScrollBar" type="HScrollBar" parent="scene_camera/Control/CanvasLayer/VBoxContainer/blue container/horizontal bar control"]
-layout_mode = 1
-anchors_preset = -1
-offset_right = 214.0
-offset_bottom = 19.0
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-accessibility_live = 1
-theme = ExtResource("3_kry3j")
-theme_override_styles/scroll = SubResource("StyleBoxFlat_6bp64")
-theme_override_styles/grabber = SubResource("StyleBoxFlat_21xkr")
-page = 10.0
-
-[node name="Text control" type="Control" parent="scene_camera/Control/CanvasLayer/VBoxContainer/blue container"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="scene_camera/Control/CanvasLayer/VBoxContainer/blue container/Text control"]
-layout_mode = 1
-anchors_preset = -1
-offset_right = 70.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.44434237, 0.5831445, 0.97240716, 1)
-text = "Blue"
+[node name="TestUi" parent="scene_camera" instance=ExtResource("4_6bp64")]
+unique_name_in_owner = true
 
 [node name="IconTexture" type="Sprite2D" parent="."]
 position = Vector2(368, 239)
