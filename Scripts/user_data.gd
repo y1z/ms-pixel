@@ -1,10 +1,7 @@
 extends Node
 # UserData
-var current_color : Color
+var current_color: Color
 
 
 func _ready() -> void:
-	
-	if current_color == null:
-		current_color = Color.INDIAN_RED
-	pass
+	current_color = Color(0.5,0.5,0.5,1.0);
