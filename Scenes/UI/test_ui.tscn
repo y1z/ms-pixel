@@ -62,6 +62,7 @@ script = ExtResource("1_pd863")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
 offset_right = 234.0
 offset_bottom = 350.0
 theme_override_constants/separation = 25
@@ -177,3 +178,15 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.44434237, 0.5831445, 0.97240716, 1)
 text = "Blue"
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -298.0
+offset_bottom = 607.0
+grow_horizontal = 0
+
+[node name="color picker" type="ColorPicker" parent="CanvasLayer/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
