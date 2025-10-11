@@ -14,8 +14,8 @@ const INVERSE_100:float = 1.0/100.0
 
 
 func _ready() -> void:
-	var pc := PixelCanvas.new();
-	pc.start()
+	#var pc := PixelCanvas.new();
+	#pc.start()
 	raw_image = Image.create_empty(DEFAULT_WIDTH, DEFAULT_HEIGHT, true, Image.Format.FORMAT_RGBA8)
 	scene_ui = %TestUi
 	scene_ui.color_picker.color_changed.connect(on_color_changed)
