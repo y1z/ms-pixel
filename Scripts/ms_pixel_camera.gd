@@ -22,7 +22,7 @@ const ZOOM_MIN:float = 0.01;
 ## controls how many times we can zoom in or out
 const ZOOM_AMOUNT_RANGES_SEGMENTS_COUNT: int = 8
 ## when to change how much does the camera zooms in or out
-const ZOOM_AMOUNT_RANGES:Array = [ZOOM_MAX,ZOOM_MAX / 2, 10.0,1.0, 0.1]
+const ZOOM_AMOUNT_RANGES:Array = [ZOOM_MAX,ZOOM_MAX / 2, 10.0,5.0,1.0, 0.1]
 
 
 func _process(delta: float) -> void:
@@ -80,7 +80,7 @@ func calculate_zoom_amount() -> void:
 	for i in ZOOM_AMOUNT_RANGES.size():
 		if zoom.x >= ZOOM_AMOUNT_RANGES[i]:
 			zoom_increment_amount = (ZOOM_AMOUNT_RANGES[i] / ZOOM_AMOUNT_RANGES_SEGMENTS_COUNT)
-			print(" zoom_increment_amount = %s" % zoom_increment_amount)
+			Util.d_print_verbose("zoom_increment_amount = %s" % zoom_increment_amount)
 			break;
 
 	pass

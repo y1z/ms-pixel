@@ -16,3 +16,7 @@ const scroll_up_fast:StringName = "scroll_up_fast"
 const scroll_down_fast:StringName = "scroll_down_fast"
 
 const turn_on_debug: StringName = "turn_on_debug"
+
+const line_mode: StringName = "line_mode"
+
+const change_size: StringName = "change_size"

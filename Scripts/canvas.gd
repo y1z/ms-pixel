@@ -6,11 +6,13 @@ const DEFAULT_HEIGHT:int = 128
 #endregion
 
 @export_group("VARIABLES")
-@export var canvas_size:Vector2i = Vector2i(DEFAULT_WIDTH, DEFAULT_HEIGHT)
-var raw_image: Image
+var pixel_canvas: GdPixelCanvas
+var sprite: Sprite2D
 
 
 func _ready() -> void:
+	pixel_canvas = GdPixelCanvas.new()
+	#%Canvas
 	inicialize_canvas()
 	#raw_image.save
 	pass
