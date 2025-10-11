@@ -1,26 +1,30 @@
-extends Sprite2D
+class_name Pixel extends Sprite2D
+### REPLACE THIS SCRIPT WITH gd_pixel_canvas.gd (MAYBE I can use this later (having trouble with making a plug-in))
+### 
 #region const
 const DEFAULT_WIDTH: int = 128
 const DEFAULT_HEIGHT: int = 128
 #endregion
 
 var raw_image: Image
-var current_color:Color
 var image_texture: ImageTexture
 var sprite_rect: Rect2
+
+var pixel_canvas: GdPixelCanvas;
 
 @export var turn_on_debug_things: bool = false;
 
 
 func _ready() -> void:
-	raw_image = Image.create_empty(DEFAULT_WIDTH, DEFAULT_HEIGHT, true, Image.Format.FORMAT_RGBA8)
+	pixel_canvas = GdPixelCanvas.new()
+	raw_image = Image.create_empty(DEFAULT_WIDTH, DEFAULT_HEIGHT, false, Image.Format.FORMAT_RGBA8)
 	image_texture = ImageTexture.new()
 	image_texture = ImageTexture.create_from_image(raw_image)
-	current_color = Color.BLACK
+	var background_color := Color.BLACK
 
 	for i in raw_image.get_height():
 		for j in raw_image.get_width():
-			raw_image.set_pixel(i,j, current_color)
+			raw_image.set_pixel(i,j, background_color)
 
 	image_texture.update(raw_image)
 	self.texture = image_texture
@@ -62,3 +66,8 @@ func _draw() -> void:
 func get_sprite_hitbox() -> Rect2:
 	var sprite_size := Vector2(self.texture.get_width(),self.texture.get_height())
 	return Rect2(self.get_rect().position,sprite_size) ;
+
+
+func draw_line_l(start: Vector2i, end: Vector2i) -> void:
+	pixel_canvas.draw_line_l(start,end);
+	pass
