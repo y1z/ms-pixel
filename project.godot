@@ -23,6 +23,7 @@ UserData="*res://Scripts/user_data.gd"
 
 [debug]
 
+settings/stdout/verbose_stdout=true
 gdscript/warnings/shadowed_variable=2
 gdscript/warnings/shadowed_variable_base_class=2
 gdscript/warnings/shadowed_global_identifier=2

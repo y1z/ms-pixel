@@ -45,8 +45,10 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed(InputNames.change_size):
 		if width == DEFAULT_WIDTH:
+			print("change size 64")
 			resize(64,64)
 		else:
+			print("change size else")
 			resize(DEFAULT_WIDTH, DEFAULT_HEIGHT)
 
 		pass
@@ -70,16 +72,22 @@ func resize(new_width: int, new_height:int) -> void:
 	var new_image_size: Vector2i = Vector2i(new_image.get_width(), new_image.get_height())
 	var current_image_size: Vector2i = Vector2i(raw_image.get_width(), raw_image.get_height())
 
-	if (new_image_size.x >= current_image_size.x) && (new_image_size.y >= current_image_size.y):
-		new_image.copy_from(raw_image)
+	new_image = give_default_pattern(new_image)
+	new_image = copy_existing_image(new_image,raw_image)
 
 	texture = ImageTexture.create_from_image(new_image)
+	raw_image = new_image
+	sprite.texture = texture
+	sprite_rect = get_sprite_hitbox()
+	width = new_image.get_width()
+	print("current width = %s" % width)
+	height = new_image.get_height()
 	pass
 
 
 func create_empty_image(new_width: int, new_height:int, new_format:Image.Format = Image.FORMAT_RGBA8) -> Image:
 
-	if accepted_formats.find_key(new_format) == null:
+	if !accepted_formats.has(new_format):
 			push_error("UNSUPPORTED FORMAT = %s" % str(new_format))
 			return Image.create_empty(DEFAULT_WIDTH,DEFAULT_HEIGHT,false,Image.FORMAT_RGBA8)
 
@@ -104,3 +112,22 @@ func give_default_pattern(image:Image) -> Image:
 func get_sprite_hitbox() -> Rect2:
 	var sprite_size := Vector2(self.texture.get_width(),self.texture.get_height())
 	return Rect2(sprite.get_rect().position,sprite_size) ;
+
+
+func copy_existing_image(target:Image, src:Image, copy_within_limits:bool = true) -> Image:
+
+	var limit_width:int = 0
+	var limit_height:int = 0
+
+	if copy_within_limits:
+		limit_width = min(target.get_width(), src.get_width())
+		limit_height = min(target.get_height(), src.get_height())
+	else:
+		limit_height = target.get_width()
+		limit_width = target.get_height()
+
+	for x in limit_width:
+		for y in limit_height:
+			target.set_pixel(x,y,src.get_pixel(x,y))
+
+	return target
