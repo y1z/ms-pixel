@@ -12,8 +12,8 @@ var width: int
 var height: int
 
 const accepted_formats: Dictionary = {
-	Image.FORMAT_RGBA8: "Image.FORMAT_RGBA8 ",
-	Image.FORMAT_RGB8: "Image.FORMAT_RGB8 ",
+	Image.FORMAT_RGBA8: "Image.FORMAT_RGBA8",
+	Image.FORMAT_RGB8: "Image.FORMAT_RGB8",
 	}
 
 
