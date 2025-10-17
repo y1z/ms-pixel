@@ -1,11 +1,254 @@
-[gd_scene format=3 uid="uid://dmpfwwg1ds5m8"]
+[gd_scene load_steps=18 format=3 uid="uid://dmpfwwg1ds5m8"]
+
+[ext_resource type="Script" uid="uid://n1uqsbjndnkt" path="res://Scripts/UI/desktop_ui.gd" id="1_vjaii"]
+[ext_resource type="PackedScene" uid="uid://naw1yrmeases" path="res://Entities/pigment.tscn" id="2_djg63"]
+
+[sub_resource type="Theme" id="Theme_2rurq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rurq"]
+bg_color = Color(0.38431373, 0.84705883, 0.17254902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u85jc"]
+bg_color = Color(0.39498106, 0.8638287, 0.17334151, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etq4e"]
+bg_color = Color(0.2686825, 0.5886543, 0.13048649, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ff6eo"]
+bg_color = Color(0.38431373, 0.84705883, 0.17254902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjaii"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djg63"]
+bg_color = Color(0.17254902, 0.4392157, 0.84705883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64q37"]
+bg_color = Color(0.20357609, 0.4753403, 0.88863575, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oe4xj"]
+bg_color = Color(0.082102574, 0.28457257, 0.5885477, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwsos"]
+bg_color = Color(0.20392157, 0.4745098, 0.8901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixii8"]
+bg_color = Color(0.5529412, 0.17254902, 0.84705883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq7cb"]
+bg_color = Color(0.6862522, 0.39265135, 0.9658045, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72qej"]
+bg_color = Color(0.42969164, 0.102167614, 0.6707597, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24337"]
+bg_color = Color(0.36966333, 0.078116424, 0.57945824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxr8r"]
+bg_color = Color(0.5529412, 0.17254902, 0.84705883, 1)
 
 [node name="DesktopUi" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vjaii")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Top bar" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="options" type="HBoxContainer" parent="CanvasLayer/Top bar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="file button" type="Button" parent="CanvasLayer/Top bar/options"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_2rurq")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_2rurq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u85jc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_etq4e")
+text = "File"
+
+[node name="file button sub-menu" type="Panel" parent="CanvasLayer/Top bar/options/file button"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 40.0
+offset_right = 224.0
+offset_bottom = 308.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ff6eo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Top bar/options/file button/file button sub-menu"]
+layout_mode = 0
+offset_right = 223.0
+offset_bottom = 264.0
+
+[node name="Save" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+alignment = 0
+
+[node name="Save as" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+alignment = 0
+
+[node name="Load" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Load"
+alignment = 0
+
+[node name="Export" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Export
+"
+alignment = 0
+
+[node name="Export as" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Export As
+"
+alignment = 0
+
+[node name="Quit" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+alignment = 0
+
+[node name="separator" type="Panel" parent="CanvasLayer/Top bar/options"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vjaii")
+
+[node name="image button" type="Button" parent="CanvasLayer/Top bar/options"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_2rurq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_djg63")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_64q37")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oe4xj")
+text = "Image"
+
+[node name="image  button sub-menu" type="Panel" parent="CanvasLayer/Top bar/options/image button"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 40.0
+offset_right = 224.0
+offset_bottom = 308.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iwsos")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Top bar/options/image button/image  button sub-menu"]
+layout_mode = 0
+offset_right = 223.0
+offset_bottom = 264.0
+
+[node name="change size" type="Button" parent="CanvasLayer/Top bar/options/image button/image  button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Change size"
+alignment = 0
+
+[node name="separator2" type="Panel" parent="CanvasLayer/Top bar/options"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vjaii")
+
+[node name="color button" type="Button" parent="CanvasLayer/Top bar/options"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_2rurq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ixii8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vq7cb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_72qej")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_24337")
+text = "Color"
+
+[node name="color button sub-menu" type="Panel" parent="CanvasLayer/Top bar/options/color button"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 40.0
+offset_right = 224.0
+offset_bottom = 308.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gxr8r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Top bar/options/color button/color button sub-menu"]
+layout_mode = 0
+offset_right = 223.0
+offset_bottom = 264.0
+
+[node name="Save" type="Button" parent="CanvasLayer/Top bar/options/color button/color button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+alignment = 0
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Top bar/options/color button/color button sub-menu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Top bar/options/color button/color button sub-menu/VBoxContainer/CheckBox"]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 65.0
+offset_bottom = 23.0
+text = "turn on color picker"
+
+[node name="Export as" type="Button" parent="CanvasLayer/Top bar/options/color button/color button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Export As
+"
+alignment = 0
+
+[node name="Quit" type="Button" parent="CanvasLayer/Top bar/options/color button/color button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+alignment = 0
+
+[node name="color picker" type="ColorPicker" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 819.0
+offset_top = 14.0
+offset_right = 1117.0
+offset_bottom = 621.0
+
+[node name="Pigment container" type="Panel" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pigment container"]
+layout_mode = 0
+offset_right = 40.78
+offset_bottom = 54.255
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Pigment container/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Pigment" parent="CanvasLayer/Pigment container/VBoxContainer/HBoxContainer" instance=ExtResource("2_djg63")]
+layout_mode = 2
+color = Color(0.90752995, 0.17277202, 0.20217305, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Pigment container/VBoxContainer"]
+layout_mode = 2
+
+[node name="Pigment" parent="CanvasLayer/Pigment container/VBoxContainer/HBoxContainer2" instance=ExtResource("2_djg63")]
+layout_mode = 2
+color = Color(0.9604061, 0.42953053, 0.42978933, 1)

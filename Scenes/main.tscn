@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcj8i1iuuxwol"]
+[gd_scene load_steps=9 format=3 uid="uid://dcj8i1iuuxwol"]
 
 [ext_resource type="Script" uid="uid://fuagb7papkb1" path="res://Scripts/main_manager.gd" id="1_6bp64"]
 [ext_resource type="Script" uid="uid://shcvhalbb7kh" path="res://Scripts/ms_pixel_camera.gd" id="3_344ge"]
 [ext_resource type="PackedScene" uid="uid://08m12oqbyi11" path="res://Scenes/UI/test_ui.tscn" id="4_6bp64"]
 [ext_resource type="PackedScene" uid="uid://cjcdpcj4atgb8" path="res://Entities/pixel.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dho8n6ljfikmk" path="res://Scenes/UI/debug_text.tscn" id="5_21xkr"]
+[ext_resource type="PackedScene" uid="uid://dmpfwwg1ds5m8" path="res://Scenes/UI/desktop_ui.tscn" id="6_344ge"]
 [ext_resource type="Script" uid="uid://b6gggrfm4eoxx" path="res://Scripts/canvas.gd" id="7_6bp64"]
 [ext_resource type="PackedScene" uid="uid://b0y72jva17rmj" path="res://Entities/pixel_canvas.tscn" id="7_344ge"]
 
@@ -24,8 +25,16 @@ script = ExtResource("3_344ge")
 
 [node name="TestUi" parent="scene_camera" instance=ExtResource("4_6bp64")]
 unique_name_in_owner = true
+visible = false
 
 [node name="DebugText" parent="scene_camera" instance=ExtResource("5_21xkr")]
+visible = false
+offset_left = -163.0
+offset_top = -75.0
+offset_right = -157.0
+offset_bottom = -75.0
+
+[node name="DesktopUi" parent="scene_camera" instance=ExtResource("6_344ge")]
 
 [node name="Node2D" type="Node2D" parent="."]
 visible = false

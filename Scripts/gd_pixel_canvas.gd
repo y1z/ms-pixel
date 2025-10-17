@@ -69,8 +69,6 @@ func start() -> void:
 
 func resize(new_width: int, new_height:int) -> void:
 	var new_image:Image = create_empty_image(new_width, new_height);
-	var new_image_size: Vector2i = Vector2i(new_image.get_width(), new_image.get_height())
-	var current_image_size: Vector2i = Vector2i(raw_image.get_width(), raw_image.get_height())
 
 	new_image = give_default_pattern(new_image)
 	new_image = copy_existing_image(new_image,raw_image)

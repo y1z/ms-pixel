@@ -8,6 +8,7 @@ class_name SceneUI
 func _ready() -> void:
 	OS.get_name()
 	color_picker = %"color picker"
+	color_picker.visible = false
 
 
 func get_current_color() -> Color:

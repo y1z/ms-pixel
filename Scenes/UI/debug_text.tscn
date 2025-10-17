@@ -15,5 +15,7 @@ script = ExtResource("1_ch8md")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_right = 1.0
-offset_bottom = 23.0
+offset_left = 1.0
+offset_top = 36.0
+offset_right = 2.0
+offset_bottom = 59.0
