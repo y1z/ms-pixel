@@ -22,7 +22,7 @@ var image_panel: ButtonAndPanel;
 
 var check_box: CheckBox
 
-var color_picker: ColorPicker
+var desktop_color_picker: ColorPicker
 
 
 func _ready() -> void:
@@ -35,11 +35,17 @@ func _ready() -> void:
 	color_panel.start(%"color button", %"color button sub-menu")
 	image_panel.start(%"image button", %"image  button sub-menu")
 
-	color_picker = %"color picker"
-	color_picker.visible = false
+	desktop_color_picker = %"color picker"
+	desktop_color_picker.visible = false
 	check_box.toggled.connect(show_the_color_picker)
+	connect_to_userdata(desktop_color_picker)
 
 
 func show_the_color_picker(toggle_on:bool) -> void:
-	color_picker.visible = toggle_on
+	desktop_color_picker.visible = toggle_on
+	pass
+
+
+func connect_to_userdata(color_picker: ColorPicker) -> void:
+	UserData.connect_to_color_picker(color_picker)
 	pass
