@@ -7,17 +7,19 @@ bg_color = Color(1, 1, 1, 1)
 
 [node name="Pigment" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.019000001
+anchor_bottom = 0.035
+offset_right = 0.11199951
+offset_bottom = 0.3199997
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wngl7")
 
 [node name="outer panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_right = 22.0
+offset_bottom = 22.0
+scale = Vector2(1.6000001, 1)
 
 [node name="inner panel" type="Panel" parent="outer panel"]
 unique_name_in_owner = true

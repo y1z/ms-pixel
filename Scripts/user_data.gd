@@ -23,6 +23,19 @@ func _ready() -> void:
 	print_draw_mode()
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		notifcation_disconnect()
+		get_tree().quit()
+
+
+func notifcation_disconnect() -> void:
+	if connected_color_picker != null:
+		disconnect_to_color_picker(connected_color_picker)
+
+	pass
+
+
 func print_draw_mode() ->void:
 	print_rich("[b]",DrawModes.find_key(draw_modes),"[/b]")
 
@@ -34,6 +47,16 @@ func set_draw_mode(new_draw_mode: DrawModes) -> void:
 func connect_to_color_picker(color_picker: ColorPicker) -> void:
 	connected_color_picker = color_picker
 	color_picker.color_changed.connect(cb_on_color_picker_change)
+	pass
+
+
+func disconnect_to_color_picker(color_picker: ColorPicker) -> void:
+	if connected_color_picker != color_picker:
+		push_error("TRYING to disconnect color picker that is not connected")
+		return
+
+	connected_color_picker = null
+	color_picker.color_changed.disconnect(cb_on_color_picker_change)
 	pass
 
 
