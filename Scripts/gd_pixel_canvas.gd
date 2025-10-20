@@ -2,6 +2,7 @@ class_name GdPixelCanvas extends Node2D
 
 const DEFAULT_WIDTH:int = 128
 const DEFAULT_HEIGHT:int = 128
+const DEFAULT_COLOR_BG:Color = Color.BLACK
 
 var sprite: Sprite2D
 var sprite_rect: Rect2
@@ -60,7 +61,7 @@ func start() -> void:
 	format = Image.FORMAT_RGBA8
 	raw_image = Image.create_empty(DEFAULT_WIDTH,DEFAULT_HEIGHT,false,format)
 	texture = ImageTexture.create_from_image(raw_image)
-	give_default_pattern(raw_image);
+	raw_image = color_entire_canvas(raw_image, DEFAULT_COLOR_BG);
 	texture.update(raw_image)
 	sprite.texture = texture
 	sprite_rect = get_sprite_hitbox()
@@ -70,8 +71,8 @@ func start() -> void:
 func resize(new_width: int, new_height:int) -> void:
 	var new_image:Image = create_empty_image(new_width, new_height);
 
-	new_image = give_default_pattern(new_image)
-	new_image = copy_existing_image(new_image,raw_image)
+	new_image = color_entire_canvas(new_image, DEFAULT_COLOR_BG)
+	new_image = copy_existing_image(new_image, raw_image)
 
 	texture = ImageTexture.create_from_image(new_image)
 	raw_image = new_image
@@ -105,6 +106,15 @@ func give_default_pattern(image:Image) -> Image:
 			image.set_pixel(i, j, pattern_colors[selected_color])
 
 	return image;
+
+
+func color_entire_canvas(image: Image, color: Color) -> Image:
+
+	for i in image.get_width():
+		for j in image.get_height():
+			image.set_pixel(i,j,color);
+
+	return image
 
 
 func get_sprite_hitbox() -> Rect2:
