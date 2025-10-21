@@ -16,9 +16,11 @@ const INVERSE_100:float = 1.0/100.0
 func _ready() -> void:
 	#var pc := PixelCanvas.new();
 	#pc.start()
+	select_ui()
+	scene_ui.start_the_ui()
 	raw_image = Image.create_empty(DEFAULT_WIDTH, DEFAULT_HEIGHT, true, Image.Format.FORMAT_RGBA8)
-	scene_ui = %TestUi
-	scene_ui.color_picker.color_changed.connect(on_color_changed)
+	#scene_ui = %TestUi
+	#scene_ui.color_picker.color_changed.connect(on_color_changed)
 
 	for i in raw_image.get_height():
 		for j in raw_image.get_width():
@@ -52,3 +54,28 @@ func on_color_changed(new_color: Color) -> void:
 
 func change_draw_mode(new_draw_mode: UserData.DrawModes) -> void:
 	UserData.draw_modes = new_draw_mode;
+
+
+func select_ui() -> void:
+	match OS.get_name():
+		"Windows":
+			scene_ui = %DesktopUi
+			print("Welcome to Windows!")
+
+		"macOS":
+			print("Welcome to macOS!")
+
+		"Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD":
+			print("Welcome to Linux/BSD!")
+
+		"Android":
+			print("Welcome to Android!")
+
+		"iOS":
+			print("Welcome to iOS!")
+
+		"Web":
+			scene_ui = %DesktopUi
+			print("Welcome to the Web!")
+
+	pass

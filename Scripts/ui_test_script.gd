@@ -1,5 +1,5 @@
 extends Control
-class_name SceneUI
+class_name SceneUILUL
 
 @export_group("VARIABLES")
 @export var color_picker: ColorPicker

@@ -1,4 +1,4 @@
-extends Control
+extends SceneUI
 
 
 class ButtonAndPanel:
@@ -25,7 +25,7 @@ var check_box: CheckBox
 var desktop_color_picker: ColorPicker
 
 
-func _ready() -> void:
+func start_the_ui() -> void:
 	file_and_panel = ButtonAndPanel.new()
 	color_panel = ButtonAndPanel.new();
 	image_panel = ButtonAndPanel.new();
@@ -39,6 +39,32 @@ func _ready() -> void:
 	desktop_color_picker.visible = false
 	check_box.toggled.connect(show_the_color_picker)
 	connect_to_userdata(desktop_color_picker)
+	pass
+
+
+func show_ui() -> void:
+	pass
+
+
+func hide_ui() -> void:
+	pass
+
+
+func _ready() -> void:
+	#file_and_panel = ButtonAndPanel.new()
+	#color_panel = ButtonAndPanel.new();
+	#image_panel = ButtonAndPanel.new();
+	#check_box = %CheckBox
+
+	#file_and_panel.start(%"file button",%"file button sub-menu")
+	#color_panel.start(%"color button", %"color button sub-menu")
+	#image_panel.start(%"image button", %"image  button sub-menu")
+
+	#desktop_color_picker = %"color picker"
+	#desktop_color_picker.visible = false
+	#check_box.toggled.connect(show_the_color_picker)
+	#connect_to_userdata(desktop_color_picker)
+	pass
 
 
 func show_the_color_picker(toggle_on:bool) -> void:
