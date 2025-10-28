@@ -24,8 +24,26 @@ func _ready() -> void:
 	pass
 
 
+func _process(delta: float) -> void:
+	if Input.is_action_pressed(InputNames.click_l):
+		var mouse_pos := to_local(get_global_mouse_position())
+		var is_inside_hitbox:bool = sprite_rect.has_point(mouse_pos)
+
+		#print("is insde hitbox [%s]" % is_inside_hitbox)
+		if !is_inside_hitbox: return
+		var inside_sprite_pos:Vector2 = mouse_pos - sprite_rect.position
+
+		@warning_ignore_start("narrowing_conversion")
+		raw_image.set_pixel(inside_sprite_pos.x, inside_sprite_pos.y, UserData.current_color)
+		@warning_ignore_restore("narrowing_conversion")
+		texture.update(raw_image)
+		sprite.texture = texture
+
+	pass
+
+
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(InputNames.click_l):
+	if event.is_action(InputNames.click_l):
 		var mouse_pos := to_local(get_global_mouse_position())
 		var is_inside_hitbox:bool = sprite_rect.has_point(mouse_pos)
 

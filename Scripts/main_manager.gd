@@ -57,25 +57,32 @@ func change_draw_mode(new_draw_mode: UserData.DrawModes) -> void:
 
 
 func select_ui() -> void:
-	match OS.get_name():
+	var os_name := OS.get_name()
+
+	match os_name:
 		"Windows":
+			print_verbose("Selected Desktop UI")
 			scene_ui = %DesktopUi
-			print("Welcome to Windows!")
 
 		"macOS":
-			print("Welcome to macOS!")
+			print_verbose("Selected Desktop UI")
+			print_verbose("NOTE: NO SPECIFIC UI HAS BEEN MADE FOR THIS PLATFORMS = [%s]" % os_name)
+			scene_ui = %DesktopUi
 
-		"Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD":
-			print("Welcome to Linux/BSD!")
+		"Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD","X11":
+			print_verbose("NOTE: NO SPECIFIC UI HAS BEEN MADE FOR THIS PLATFORMS = [%s]" % os_name)
+			scene_ui = %DesktopUi
 
 		"Android":
-			print("Welcome to Android!")
+			print_verbose("Selected Android UI")
+			push_error("NO SUTABLE UI YET")
 
 		"iOS":
-			print("Welcome to iOS!")
+			print_verbose("Selected IOS UI")
+			push_error("NO SUTABLE UI YET")
 
 		"Web":
+			print_verbose("Selected Desktop UI")
 			scene_ui = %DesktopUi
-			print("Welcome to the Web!")
 
 	pass

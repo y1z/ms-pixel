@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dho8n6ljfikmk"]
 
-[ext_resource type="Script" uid="uid://cqaritgaupb5a" path="res://Scripts/debug_only/debug_os_text.gd" id="1_ch8md"]
+[ext_resource type="Script" uid="uid://cqaritgaupb5a" path="res://Scripts/Debug Only/debug_os_text.gd" id="1_ch8md"]
 
 [node name="DebugText" type="Control"]
 layout_mode = 3
