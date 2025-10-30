@@ -8,19 +8,11 @@ var image_texture: ImageTexture
 
 @export var scene_ui: SceneUI
 
-var pixel_in_focus: Pixel;
-
-const INVERSE_100:float = 1.0/100.0
-
 
 func _ready() -> void:
-	#var pc := PixelCanvas.new();
-	#pc.start()
 	select_ui()
 	scene_ui.start_the_ui()
 	raw_image = Image.create_empty(DEFAULT_WIDTH, DEFAULT_HEIGHT, true, Image.Format.FORMAT_RGBA8)
-	#scene_ui = %TestUi
-	#scene_ui.color_picker.color_changed.connect(on_color_changed)
 
 	for i in raw_image.get_height():
 		for j in raw_image.get_width():
@@ -83,6 +75,7 @@ func select_ui() -> void:
 
 		"Web":
 			print_verbose("Selected Desktop UI")
+			print_verbose("NOTE: NO SPECIFIC UI HAS BEEN MADE FOR THIS PLATFORMS = [%s]" % os_name)
 			scene_ui = %DesktopUi
 
 	pass

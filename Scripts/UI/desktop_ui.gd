@@ -50,23 +50,6 @@ func hide_ui() -> void:
 	pass
 
 
-func _ready() -> void:
-	#file_and_panel = ButtonAndPanel.new()
-	#color_panel = ButtonAndPanel.new();
-	#image_panel = ButtonAndPanel.new();
-	#check_box = %CheckBox
-
-	#file_and_panel.start(%"file button",%"file button sub-menu")
-	#color_panel.start(%"color button", %"color button sub-menu")
-	#image_panel.start(%"image button", %"image  button sub-menu")
-
-	#desktop_color_picker = %"color picker"
-	#desktop_color_picker.visible = false
-	#check_box.toggled.connect(show_the_color_picker)
-	#connect_to_userdata(desktop_color_picker)
-	pass
-
-
 func show_the_color_picker(toggle_on:bool) -> void:
 	desktop_color_picker.visible = toggle_on
 	pass

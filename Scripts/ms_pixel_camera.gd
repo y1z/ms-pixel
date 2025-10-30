@@ -25,7 +25,7 @@ const ZOOM_AMOUNT_RANGES_SEGMENTS_COUNT: int = 8
 const ZOOM_AMOUNT_RANGES:Array = [ZOOM_MAX,ZOOM_MAX / 2, 10.0,5.0,1.0, 0.1]
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(InputNames.click_r):
 		last_position = self.position
 		start_click_position = get_local_mouse_position();

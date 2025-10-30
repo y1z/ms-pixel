@@ -24,7 +24,7 @@ func _ready() -> void:
 	pass
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_pressed(InputNames.click_l):
 		var mouse_pos := to_local(get_global_mouse_position())
 		var is_inside_hitbox:bool = sprite_rect.has_point(mouse_pos)
@@ -43,21 +43,6 @@ func _process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action(InputNames.click_l):
-		var mouse_pos := to_local(get_global_mouse_position())
-		var is_inside_hitbox:bool = sprite_rect.has_point(mouse_pos)
-
-		#print("is insde hitbox [%s]" % is_inside_hitbox)
-		if !is_inside_hitbox: return
-		var inside_sprite_pos:Vector2 = mouse_pos - sprite_rect.position
-
-		@warning_ignore_start("narrowing_conversion")
-		raw_image.set_pixel(inside_sprite_pos.x, inside_sprite_pos.y, UserData.current_color)
-		@warning_ignore_restore("narrowing_conversion")
-		texture.update(raw_image)
-		sprite.texture = texture
-		pass
-
 	if event.is_action_pressed(InputNames.turn_on_debug):
 		#turn_on_debug_things = !turn_on_debug_things
 		pass
@@ -80,10 +65,14 @@ func start() -> void:
 	raw_image = Image.create_empty(DEFAULT_WIDTH,DEFAULT_HEIGHT,false,format)
 	texture = ImageTexture.create_from_image(raw_image)
 	raw_image = color_entire_canvas(raw_image, DEFAULT_COLOR_BG);
-	texture.update(raw_image)
-	sprite.texture = texture
+	update_texture()
 	sprite_rect = get_sprite_hitbox()
 	pass
+
+
+func update_texture() -> void:
+	texture.update(raw_image)
+	sprite.texture = texture
 
 
 func resize(new_width: int, new_height:int) -> void:
@@ -93,8 +82,10 @@ func resize(new_width: int, new_height:int) -> void:
 	new_image = copy_existing_image(new_image, raw_image)
 
 	texture = ImageTexture.create_from_image(new_image)
+
 	raw_image = new_image
-	sprite.texture = texture
+
+	update_texture()
 	sprite_rect = get_sprite_hitbox()
 	width = new_image.get_width()
 	print("current width = %s" % width)
@@ -154,6 +145,23 @@ func copy_existing_image(target:Image, src:Image, copy_within_limits:bool = true
 
 	for x in limit_width:
 		for y in limit_height:
-			target.set_pixel(x,y,src.get_pixel(x,y))
+			target.set_pixel(x, y, src.get_pixel(x,y))
 
 	return target
+
+
+func draw_line_on_canvas(start_:Vector2i,end_:Vector2i) -> void:
+
+	pass
+
+
+func draw_horizontal_line_on_canvas(start_:Vector2i, distance_:int, goes_left_to_right:bool) -> void:
+	var current_position := start_
+
+	var increment:int = 1 if goes_left_to_right else -1;
+	for i in distance_:
+		raw_image.set_pixelv(current_position, UserData.current_color)
+		pass
+
+	update_texture()
+	pass

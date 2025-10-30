@@ -61,169 +61,6 @@ script = ExtResource("1_vjaii")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Top bar" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-
-[node name="options" type="HBoxContainer" parent="CanvasLayer/Top bar"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="file button" type="Button" parent="CanvasLayer/Top bar/options"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = SubResource("Theme_2rurq")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_2rurq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_u85jc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_etq4e")
-text = "File"
-
-[node name="file button sub-menu" type="Panel" parent="CanvasLayer/Top bar/options/file button"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_top = 40.0
-offset_right = 224.0
-offset_bottom = 308.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ff6eo")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Top bar/options/file button/file button sub-menu"]
-layout_mode = 0
-offset_right = 223.0
-offset_bottom = 264.0
-
-[node name="Save" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
-layout_mode = 2
-text = "Save"
-alignment = 0
-
-[node name="Save as" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
-layout_mode = 2
-text = "Save"
-alignment = 0
-
-[node name="Load" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
-layout_mode = 2
-text = "Load"
-alignment = 0
-
-[node name="Export" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
-layout_mode = 2
-text = "Export
-"
-alignment = 0
-
-[node name="Export as" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
-layout_mode = 2
-text = "Export As
-"
-alignment = 0
-
-[node name="Quit" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-alignment = 0
-
-[node name="separator" type="Panel" parent="CanvasLayer/Top bar/options"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vjaii")
-
-[node name="image button" type="Button" parent="CanvasLayer/Top bar/options"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = SubResource("Theme_2rurq")
-theme_override_styles/normal = SubResource("StyleBoxFlat_djg63")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_64q37")
-theme_override_styles/hover = SubResource("StyleBoxFlat_oe4xj")
-text = "Image"
-
-[node name="image  button sub-menu" type="Panel" parent="CanvasLayer/Top bar/options/image button"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_top = 40.0
-offset_right = 224.0
-offset_bottom = 308.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_iwsos")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Top bar/options/image button/image  button sub-menu"]
-layout_mode = 0
-offset_right = 223.0
-offset_bottom = 264.0
-
-[node name="change size" type="Button" parent="CanvasLayer/Top bar/options/image button/image  button sub-menu/VBoxContainer"]
-layout_mode = 2
-text = "Change size"
-alignment = 0
-
-[node name="separator2" type="Panel" parent="CanvasLayer/Top bar/options"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vjaii")
-
-[node name="color button" type="Button" parent="CanvasLayer/Top bar/options"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = SubResource("Theme_2rurq")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ixii8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_vq7cb")
-theme_override_styles/hover = SubResource("StyleBoxFlat_72qej")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_24337")
-text = "Color"
-
-[node name="color button sub-menu" type="Panel" parent="CanvasLayer/Top bar/options/color button"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_top = 40.0
-offset_right = 224.0
-offset_bottom = 308.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_gxr8r")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Top bar/options/color button/color button sub-menu"]
-layout_mode = 0
-offset_right = 223.0
-offset_bottom = 264.0
-
-[node name="Save" type="Button" parent="CanvasLayer/Top bar/options/color button/color button sub-menu/VBoxContainer"]
-layout_mode = 2
-text = "Save"
-alignment = 0
-
-[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Top bar/options/color button/color button sub-menu/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Top bar/options/color button/color button sub-menu/VBoxContainer/CheckBox"]
-layout_mode = 0
-offset_left = 25.0
-offset_right = 65.0
-offset_bottom = 23.0
-text = "turn on color picker"
-
-[node name="Export as" type="Button" parent="CanvasLayer/Top bar/options/color button/color button sub-menu/VBoxContainer"]
-layout_mode = 2
-text = "Export As
-"
-alignment = 0
-
-[node name="Quit" type="Button" parent="CanvasLayer/Top bar/options/color button/color button sub-menu/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-alignment = 0
-
-[node name="color picker" type="ColorPicker" parent="CanvasLayer"]
-unique_name_in_owner = true
-offset_left = 819.0
-offset_top = 14.0
-offset_right = 1117.0
-offset_bottom = 621.0
-
 [node name="Pigment container" type="Panel" parent="CanvasLayer"]
 anchors_preset = 12
 anchor_top = 1.0
@@ -352,3 +189,180 @@ color = Color(0.8352941, 0.28627452, 0.14509805, 1)
 [node name="light magenta" parent="CanvasLayer/Pigment container/VBoxContainer/Lighter color row" instance=ExtResource("2_djg63")]
 layout_mode = 2
 color = Color(0.8235294, 0.38431373, 0.64705884, 1)
+
+[node name="Top bar" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Tool container" type="Panel" parent="CanvasLayer/Top bar"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 46.0
+offset_right = 88.0
+offset_bottom = 589.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Top bar/Tool container"]
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 40.0
+theme_override_constants/separation = 6
+
+[node name="Left tool bar items" type="VBoxContainer" parent="CanvasLayer/Top bar/Tool container/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/Top bar/Tool container/HBoxContainer/Left tool bar items"]
+layout_mode = 2
+text = "Line"
+
+[node name="right tool bar items" type="VBoxContainer" parent="CanvasLayer/Top bar/Tool container/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/Top bar/Tool container/HBoxContainer/right tool bar items"]
+layout_mode = 2
+text = "Rect"
+
+[node name="options" type="HBoxContainer" parent="CanvasLayer/Top bar"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 134.0
+offset_bottom = 40.0
+
+[node name="file button" type="Button" parent="CanvasLayer/Top bar/options"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_2rurq")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_2rurq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u85jc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_etq4e")
+text = "File"
+
+[node name="file button sub-menu" type="Panel" parent="CanvasLayer/Top bar/options/file button"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 40.0
+offset_right = 224.0
+offset_bottom = 308.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ff6eo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Top bar/options/file button/file button sub-menu"]
+layout_mode = 0
+offset_right = 223.0
+offset_bottom = 264.0
+
+[node name="Save" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+alignment = 0
+
+[node name="Save as" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+alignment = 0
+
+[node name="Load" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Load"
+alignment = 0
+
+[node name="Export" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Export
+"
+alignment = 0
+
+[node name="Export as" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Export As
+"
+alignment = 0
+
+[node name="Quit" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+alignment = 0
+
+[node name="separator" type="Panel" parent="CanvasLayer/Top bar/options"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vjaii")
+
+[node name="image button" type="Button" parent="CanvasLayer/Top bar/options"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_2rurq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_djg63")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_64q37")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oe4xj")
+text = "Image"
+
+[node name="image  button sub-menu" type="Panel" parent="CanvasLayer/Top bar/options/image button"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 40.0
+offset_right = 224.0
+offset_bottom = 308.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iwsos")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Top bar/options/image button/image  button sub-menu"]
+layout_mode = 0
+offset_right = 223.0
+offset_bottom = 264.0
+
+[node name="change size" type="Button" parent="CanvasLayer/Top bar/options/image button/image  button sub-menu/VBoxContainer"]
+layout_mode = 2
+text = "Change size"
+alignment = 0
+
+[node name="separator2" type="Panel" parent="CanvasLayer/Top bar/options"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vjaii")
+
+[node name="color button" type="Button" parent="CanvasLayer/Top bar/options"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_2rurq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ixii8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vq7cb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_72qej")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_24337")
+text = "Color"
+
+[node name="color button sub-menu" type="Panel" parent="CanvasLayer/Top bar/options/color button"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 40.0
+offset_right = 224.0
+offset_bottom = 308.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gxr8r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Top bar/options/color button/color button sub-menu"]
+layout_mode = 0
+offset_right = 223.0
+offset_bottom = 264.0
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Top bar/options/color button/color button sub-menu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Top bar/options/color button/color button sub-menu/VBoxContainer/CheckBox"]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 65.0
+offset_bottom = 23.0
+text = "turn on color picker"
+
+[node name="color picker" type="ColorPicker" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 819.0
+offset_top = 14.0
+offset_right = 1117.0
+offset_bottom = 621.0

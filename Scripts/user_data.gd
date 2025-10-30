@@ -9,7 +9,15 @@ CIRCLES,
 }
 
 var current_color: Color
-var draw_modes: DrawModes = DrawModes.NONE
+var draw_modes: DrawModes = DrawModes.NONE:
+	set(new_draw_mode):
+		draw_modes = new_draw_mode
+		print_draw_mode()
+
+	get:
+		return draw_modes
+
+var selected_canvas: GdPixelCanvas
 
 var start_point: Vector2i
 var end_point: Vector2i
