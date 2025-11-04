@@ -24,6 +24,11 @@ var check_box: CheckBox
 
 var desktop_color_picker: ColorPicker
 
+var current_draw_mode:UserData.DrawModes
+
+var line_button:Button = Button.new();
+var rect_button:Button = Button.new();
+
 
 func start_the_ui() -> void:
 	file_and_panel = ButtonAndPanel.new()
@@ -35,10 +40,14 @@ func start_the_ui() -> void:
 	color_panel.start(%"color button", %"color button sub-menu")
 	image_panel.start(%"image button", %"image  button sub-menu")
 
+	line_button = %"Line Button"
+	rect_button = %"Rect Button"
+
 	desktop_color_picker = %"color picker"
 	desktop_color_picker.visible = false
 	check_box.toggled.connect(show_the_color_picker)
 	connect_to_userdata(desktop_color_picker)
+	current_draw_mode = UserData.draw_modes
 	pass
 
 
@@ -58,3 +67,30 @@ func show_the_color_picker(toggle_on:bool) -> void:
 func connect_to_userdata(color_picker: ColorPicker) -> void:
 	UserData.connect_to_color_picker(color_picker)
 	pass
+
+
+func activate_tool(draw_mode_:UserData.DrawModes) -> void:
+	match (draw_mode_):
+		UserData.DrawModes.PUT_PIXEL:
+			UserData.draw_modes = draw_mode_
+			pass
+
+		_:
+			printerr("UN-HANDLED CASE REACHED")
+			pass
+
+	UserData.print_draw_mode()
+	pass
+
+
+func deactivate_tool(draw_mode_:UserData.DrawModes) -> void:
+	match (draw_mode_):
+		_:
+			printerr("UN-HANDLED CASE REACHED")
+			pass
+
+	pass
+
+
+func is_tool_active(draw_mode_:UserData.DrawModes) -> bool:
+	return draw_mode_ == current_draw_mode

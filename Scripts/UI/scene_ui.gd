@@ -8,3 +8,12 @@
 
 
 @abstract func hide_ui() -> void
+
+
+@abstract func activate_tool(draw_mode:UserData.DrawModes) -> void
+
+
+@abstract func deactivate_tool(draw_mode:UserData.DrawModes) -> void
+
+
+@abstract func is_tool_active(draw_mode:UserData.DrawModes) -> bool
