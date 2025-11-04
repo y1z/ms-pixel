@@ -37,11 +37,11 @@ static func save(canvas:GdPixelCanvas, canvas_name:String, save_mode:SaveMode) -
 		SaveMode.SAVE_SIMPLE_PIXEL_FORMAT:
 			var width := canvas.raw_image.get_width()
 			var height := canvas.raw_image.get_height()
-			var final_string : String = "";
+			var final_string: String = "";
+
 			for x in width:
 				for y in height:
-					
-			
+
 			return true
 
 		_:
