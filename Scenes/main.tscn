@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcj8i1iuuxwol"]
+[gd_scene load_steps=7 format=3 uid="uid://dcj8i1iuuxwol"]
 
 [ext_resource type="Script" uid="uid://fuagb7papkb1" path="res://Scripts/main_manager.gd" id="1_6bp64"]
 [ext_resource type="Script" uid="uid://shcvhalbb7kh" path="res://Scripts/ms_pixel_camera.gd" id="3_344ge"]
+[ext_resource type="PackedScene" uid="uid://w1gtjx2reli1" path="res://Scenes/UI/fps_counter.tscn" id="5_6bp64"]
 [ext_resource type="PackedScene" uid="uid://dho8n6ljfikmk" path="res://Scenes/UI/debug_text.tscn" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://dmpfwwg1ds5m8" path="res://Scenes/UI/desktop_ui.tscn" id="6_344ge"]
 [ext_resource type="PackedScene" uid="uid://b0y72jva17rmj" path="res://Entities/pixel_canvas.tscn" id="7_344ge"]
@@ -25,6 +26,14 @@ offset_bottom = -75.0
 
 [node name="DesktopUi" parent="scene_camera" instance=ExtResource("6_344ge")]
 unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="scene_camera"]
+
+[node name="FpsCounter" parent="scene_camera/CanvasLayer" instance=ExtResource("5_6bp64")]
+offset_left = 138.0
+offset_top = 1.0
+offset_right = 138.0
+offset_bottom = 1.0
 
 [node name="PixelCanvas" parent="." instance=ExtResource("7_344ge")]
 position = Vector2(17.56, 0)
