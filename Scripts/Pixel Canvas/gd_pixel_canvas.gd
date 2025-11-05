@@ -12,11 +12,6 @@ var format: Image.Format
 var width: int
 var height: int
 
-const accepted_formats: Dictionary = {
-	Image.FORMAT_RGBA8: "Image.FORMAT_RGBA8",
-	Image.FORMAT_RGB8: "Image.FORMAT_RGB8",
-	}
-
 
 func _ready() -> void:
 	sprite = %Canvas
@@ -95,11 +90,11 @@ func resize(new_width: int, new_height:int) -> void:
 
 func create_empty_image(new_width: int, new_height:int, new_format:Image.Format = Image.FORMAT_RGBA8) -> Image:
 
-	if !accepted_formats.has(new_format):
+	if !PixelCanvasGlobals.accepted_formats.has(new_format):
 			push_error("UNSUPPORTED FORMAT = %s" % str(new_format))
 			return Image.create_empty(DEFAULT_WIDTH,DEFAULT_HEIGHT,false,Image.FORMAT_RGBA8)
 
-	print_verbose("current format =[%s]" % accepted_formats[new_format])
+	print_verbose("current format =[%s]" % PixelCanvasGlobals.accepted_formats[new_format])
 	return Image.create_empty(new_width, new_height,false,new_format)
 
 
