@@ -17,23 +17,43 @@ unique_name_in_owner = true
 zoom = Vector2(2.12, 2.12)
 script = ExtResource("3_344ge")
 
-[node name="DebugText" parent="scene_camera" instance=ExtResource("5_21xkr")]
+[node name="UI for Camera" type="Control" parent="scene_camera"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DebugText" parent="scene_camera/UI for Camera" instance=ExtResource("5_21xkr")]
 visible = false
+layout_mode = 1
 offset_left = -163.0
 offset_top = -75.0
 offset_right = -157.0
 offset_bottom = -75.0
 
-[node name="DesktopUi" parent="scene_camera" instance=ExtResource("6_344ge")]
+[node name="DesktopUi" parent="scene_camera/UI for Camera" instance=ExtResource("6_344ge")]
 unique_name_in_owner = true
+layout_mode = 1
+offset_left = -269.0
+offset_top = -43.0
+offset_right = -269.0
+offset_bottom = -43.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="scene_camera"]
+[node name="CanvasLayer" type="CanvasLayer" parent="scene_camera/UI for Camera"]
+visible = false
 
-[node name="FpsCounter" parent="scene_camera/CanvasLayer" instance=ExtResource("5_6bp64")]
+[node name="FpsCounter" parent="scene_camera/UI for Camera/CanvasLayer" instance=ExtResource("5_6bp64")]
 offset_left = 138.0
 offset_top = 1.0
 offset_right = 138.0
 offset_bottom = 1.0
 
+[node name="ColorPicker" type="ColorPicker" parent="scene_camera/UI for Camera/CanvasLayer"]
+offset_left = 414.0
+offset_top = 76.0
+offset_right = 712.0
+offset_bottom = 683.0
+
 [node name="PixelCanvas" parent="." instance=ExtResource("7_344ge")]
+unique_name_in_owner = true
 position = Vector2(17.56, 0)

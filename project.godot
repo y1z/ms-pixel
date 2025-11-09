@@ -125,6 +125,8 @@ change_size={
 [input_devices]
 
 pointing/android/enable_pan_and_scale_gestures=true
+buffering/agile_event_flushing=true
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 

@@ -29,8 +29,14 @@ var current_draw_mode:UserData.DrawModes
 var line_button:Button = Button.new();
 var rect_button:Button = Button.new();
 
+var file_buttons_container: VBoxContainer
 
-func start_the_ui() -> void:
+var saving_dialog: FileDialog;
+var loading_dialog: FileDialog
+
+
+#region SceneUI Implementation
+func start_the_ui(pix_canvas:GdPixelCanvas) -> void:
 	file_and_panel = ButtonAndPanel.new()
 	color_panel = ButtonAndPanel.new();
 	image_panel = ButtonAndPanel.new();
@@ -48,6 +54,38 @@ func start_the_ui() -> void:
 	check_box.toggled.connect(show_the_color_picker)
 	connect_to_userdata(desktop_color_picker)
 	current_draw_mode = UserData.draw_modes
+
+	file_buttons_container = %file_menu_options
+
+	saving_dialog = SceneUI.create_file_dialog(FileDialog.FileMode.FILE_MODE_SAVE_FILE)
+	loading_dialog = SceneUI.create_file_dialog(FileDialog.FileMode.FILE_MODE_OPEN_FILE)
+
+	self.add_child(saving_dialog)
+	self.add_child(loading_dialog)
+	saving_dialog.visible = false
+	loading_dialog.visible = false
+	saving_dialog.file_selected.connect(
+		func(path:String):
+			cb_on_file_selected(path, pix_canvas, false)
+
+	)
+
+	loading_dialog.file_selected.connect(
+		func(path:String):
+			cb_on_file_selected(path, pix_canvas, true)
+
+	)
+	for b in file_buttons_container.get_children():
+		if b.name == "Save" && b is Button:
+			var call_back:Callable = func()->void: saving_dialog.visible = true
+			b.pressed.connect(
+				func()->void:
+				call_back.call()
+				)
+
+		if b.name == "Load" && b is Button:
+			var call_back: Callable = func() ->void: loading_dialog.visible = true
+
 	pass
 
 
@@ -94,3 +132,22 @@ func deactivate_tool(draw_mode_:UserData.DrawModes) -> void:
 
 func is_tool_active(draw_mode_:UserData.DrawModes) -> bool:
 	return draw_mode_ == current_draw_mode
+
+
+func open_saving_screen() -> void:
+	pass
+
+
+func open_loading_screen() -> void:
+	pass
+
+#endregion
+
+
+func cb_on_file_selected(path:String, canvas:GdPixelCanvas, loading_file:bool) -> void:
+	if !loading_file:
+		PixelCanvasSaver.save(canvas, "", path,PixelCanvasSaver.SaveMode.SAVE_SIMPLE_PIXEL_FORMAT_TEXT)
+	else:
+		PixelCanvasSaver.load(canvas, path)
+
+	pass

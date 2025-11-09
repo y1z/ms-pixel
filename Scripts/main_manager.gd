@@ -11,7 +11,7 @@ var image_texture: ImageTexture
 
 func _ready() -> void:
 	select_ui()
-	scene_ui.start_the_ui()
+	scene_ui.start_the_ui(%PixelCanvas)
 	raw_image = Image.create_empty(DEFAULT_WIDTH, DEFAULT_HEIGHT, true, Image.Format.FORMAT_RGBA8)
 
 	for i in raw_image.get_height():

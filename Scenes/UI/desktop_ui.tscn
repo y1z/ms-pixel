@@ -50,7 +50,6 @@ bg_color = Color(0.36966333, 0.078116424, 0.57945824, 1)
 bg_color = Color(0.5529412, 0.17254902, 0.84705883, 1)
 
 [node name="DesktopUi" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -248,46 +247,46 @@ text = "File"
 
 [node name="file button sub-menu" type="Panel" parent="CanvasLayer/Top bar/options/file button"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
 offset_top = 40.0
 offset_right = 224.0
 offset_bottom = 308.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ff6eo")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Top bar/options/file button/file button sub-menu"]
+[node name="file_menu_options" type="VBoxContainer" parent="CanvasLayer/Top bar/options/file button/file button sub-menu"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 223.0
 offset_bottom = 264.0
 
-[node name="Save" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+[node name="Save" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/file_menu_options"]
 layout_mode = 2
 text = "Save"
 alignment = 0
 
-[node name="Save as" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+[node name="Save as" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/file_menu_options"]
 layout_mode = 2
-text = "Save"
+text = "Save as"
 alignment = 0
 
-[node name="Load" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+[node name="Load" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/file_menu_options"]
 layout_mode = 2
 text = "Load"
 alignment = 0
 
-[node name="Export" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+[node name="Export" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/file_menu_options"]
 layout_mode = 2
 text = "Export
 "
 alignment = 0
 
-[node name="Export as" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+[node name="Export as" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/file_menu_options"]
 layout_mode = 2
 text = "Export As
 "
 alignment = 0
 
-[node name="Quit" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/VBoxContainer"]
+[node name="Quit" type="Button" parent="CanvasLayer/Top bar/options/file button/file button sub-menu/file_menu_options"]
 layout_mode = 2
 text = "Quit"
 alignment = 0
@@ -340,6 +339,7 @@ text = "Color"
 
 [node name="color button sub-menu" type="Panel" parent="CanvasLayer/Top bar/options/color button"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_top = 40.0
 offset_right = 224.0

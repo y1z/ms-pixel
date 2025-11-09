@@ -6,3 +6,8 @@ const accepted_formats: Dictionary = {
 	}
 
 const save_dir:String = "user://saves/"
+
+enum SavingFormats {
+	TEXT,
+	BINARY
+}
