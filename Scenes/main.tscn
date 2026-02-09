@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcj8i1iuuxwol"]
+[gd_scene format=3 uid="uid://dcj8i1iuuxwol"]
 
 [ext_resource type="Script" uid="uid://fuagb7papkb1" path="res://Scripts/main_manager.gd" id="1_6bp64"]
 [ext_resource type="Script" uid="uid://shcvhalbb7kh" path="res://Scripts/ms_pixel_camera.gd" id="3_344ge"]
@@ -7,23 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://dmpfwwg1ds5m8" path="res://Scenes/UI/desktop_ui.tscn" id="6_344ge"]
 [ext_resource type="PackedScene" uid="uid://b0y72jva17rmj" path="res://Entities/pixel_canvas.tscn" id="7_344ge"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=2133453975]
 script = ExtResource("1_6bp64")
 
-[node name="user_data" type="Node" parent="."]
+[node name="user_data" type="Node" parent="." unique_id=728251398]
 
-[node name="scene_camera" type="Camera2D" parent="."]
+[node name="scene_camera" type="Camera2D" parent="." unique_id=149528336]
 unique_name_in_owner = true
 zoom = Vector2(2.12, 2.12)
 script = ExtResource("3_344ge")
 
-[node name="UI for Camera" type="Control" parent="scene_camera"]
+[node name="UI for Camera" type="Control" parent="scene_camera" unique_id=483475833]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="DebugText" parent="scene_camera/UI for Camera" instance=ExtResource("5_21xkr")]
+[node name="DebugText" parent="scene_camera/UI for Camera" unique_id=963807298 instance=ExtResource("5_21xkr")]
 visible = false
 layout_mode = 1
 offset_left = -163.0
@@ -31,7 +31,7 @@ offset_top = -75.0
 offset_right = -157.0
 offset_bottom = -75.0
 
-[node name="DesktopUi" parent="scene_camera/UI for Camera" instance=ExtResource("6_344ge")]
+[node name="DesktopUi" parent="scene_camera/UI for Camera" unique_id=415326001 instance=ExtResource("6_344ge")]
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = -269.0
@@ -39,21 +39,21 @@ offset_top = -43.0
 offset_right = -269.0
 offset_bottom = -43.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="scene_camera/UI for Camera"]
+[node name="CanvasLayer" type="CanvasLayer" parent="scene_camera/UI for Camera" unique_id=1168721172]
 visible = false
 
-[node name="FpsCounter" parent="scene_camera/UI for Camera/CanvasLayer" instance=ExtResource("5_6bp64")]
+[node name="FpsCounter" parent="scene_camera/UI for Camera/CanvasLayer" unique_id=1244192592 instance=ExtResource("5_6bp64")]
 offset_left = 138.0
 offset_top = 1.0
 offset_right = 138.0
 offset_bottom = 1.0
 
-[node name="ColorPicker" type="ColorPicker" parent="scene_camera/UI for Camera/CanvasLayer"]
+[node name="ColorPicker" type="ColorPicker" parent="scene_camera/UI for Camera/CanvasLayer" unique_id=1564046378]
 offset_left = 414.0
 offset_top = 76.0
 offset_right = 712.0
 offset_bottom = 683.0
 
-[node name="PixelCanvas" parent="." instance=ExtResource("7_344ge")]
+[node name="PixelCanvas" parent="." unique_id=584826270 instance=ExtResource("7_344ge")]
 unique_name_in_owner = true
 position = Vector2(17.56, 0)

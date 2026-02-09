@@ -1,6 +1,6 @@
 extends Control
 
-var text:Label;
+var text: Label;
 
 
 func _ready() -> void:

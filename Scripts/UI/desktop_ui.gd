@@ -84,7 +84,7 @@ func start_the_ui(pix_canvas:GdPixelCanvas) -> void:
 				)
 
 		if b.name == "Load" && b is Button:
-			var call_back: Callable = func() ->void: loading_dialog.visible = true
+			var call_back: Callable = func(): loading_dialog.visible = true
 
 	pass
 

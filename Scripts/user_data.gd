@@ -1,11 +1,13 @@
 extends Node
+
 # UserData
 
-enum DrawModes {NONE = 0,
-PUT_PIXEL = 1,
-LINES,
-RECTANGLES,
-CIRCLES,
+enum DrawModes {
+	NONE = 0,
+	PUT_PIXEL = 1,
+	LINES,
+	RECTANGLES,
+	CIRCLES,
 }
 
 var current_color: Color
@@ -26,7 +28,7 @@ var connected_color_picker: ColorPicker = null
 
 
 func _ready() -> void:
-	current_color = Color(1,1,1,1.0);
+	current_color = Color(1, 1, 1, 1.0);
 	draw_modes = DrawModes.PUT_PIXEL
 	print_draw_mode()
 
@@ -44,8 +46,8 @@ func notifcation_disconnect() -> void:
 	pass
 
 
-func print_draw_mode() ->void:
-	print_rich("[b]",DrawModes.find_key(draw_modes),"[/b]")
+func print_draw_mode() -> void:
+	print_rich("[b]", DrawModes.find_key(draw_modes), "[/b]")
 
 
 func set_draw_mode(new_draw_mode: DrawModes) -> void:

@@ -2,16 +2,16 @@ class_name PixelCanvasSaveFormat extends Object
 
 #region configuration constants
 
-const version:int = 1;
-const extension:String = ".mysp"
-const whole_color_separator:String = ","
+const version: int = 1;
+const extension: String = ".mysp"
+const whole_color_separator: String = ","
 const individual_color_componet_separator: String = " "
 
 #endregion
 
 
 func _init() -> void:
-	assert(whole_color_separator != individual_color_componet_separator,"They need to be different")
+	assert(whole_color_separator != individual_color_componet_separator, "They need to be different")
 
 
 func save_as_text(image: Image, name: String, save_path: String) -> Error:
@@ -21,7 +21,7 @@ func save_as_text(image: Image, name: String, save_path: String) -> Error:
 
 	for x in image_width:
 		for y in image_height:
-			var color:= image.get_pixel(x,y)
+			var color := image.get_pixel(x, y)
 
 			data = data + _parse_color_data(color)
 			pass
@@ -41,7 +41,7 @@ func save_as_text(image: Image, name: String, save_path: String) -> Error:
 		printerr(FileAccess.get_open_error())
 		return FileAccess.get_open_error()
 
-	var header:String = _build_header(image.get_format(), image_width, image_height, PixelCanvasGlobals.SavingFormats.TEXT);
+	var header: String = _build_header(image.get_format(), image_width, image_height, PixelCanvasGlobals.SavingFormats.TEXT);
 	file.store_string(header)
 	file.store_string(data)
 
@@ -50,7 +50,7 @@ func save_as_text(image: Image, name: String, save_path: String) -> Error:
 
 
 func save_as_binary(image: Image, name: String, save_path: String) -> Error:
-	var header:String = _build_header(image.get_format(), image.get_width(), image.get_height(), PixelCanvasGlobals.SavingFormats.BINARY);
+	var header: String = _build_header(image.get_format(), image.get_width(), image.get_height(), PixelCanvasGlobals.SavingFormats.BINARY);
 	return OK
 
 
@@ -59,9 +59,9 @@ func save_as_binary(image: Image, name: String, save_path: String) -> Error:
 ## width -> the width of the image
 ## height -> the height of the image
 ## _note -> Text that will be ignored during the loading process (also DON'T include newline characters aka \n or it breaks)
-func _build_header(format: Image.Format, width:int, height:int, saving_formt:PixelCanvasGlobals.SavingFormats,_note:String = "") -> String:
-	var has_valid_format:bool = PixelCanvasGlobals.accepted_formats.has(format)
-	var result:String = "";
+func _build_header(format: Image.Format, width: int, height: int, saving_formt: PixelCanvasGlobals.SavingFormats, _note: String = "") -> String:
+	var has_valid_format: bool = PixelCanvasGlobals.accepted_formats.has(format)
+	var result: String = "";
 
 	if !has_valid_format:
 		printerr("[ERR] Format not valid (format = %s)" % format)
@@ -85,6 +85,6 @@ func _build_header(format: Image.Format, width:int, height:int, saving_formt:Pix
 	return result
 
 
-func _parse_color_data(color:Color) -> String:
-	var separator:= individual_color_componet_separator;
+func _parse_color_data(color: Color) -> String:
+	var separator := individual_color_componet_separator;
 	return whole_color_separator + str(color.r8) + separator + str(color.g8) + separator + str(color.b8) + separator + str(color.a8)

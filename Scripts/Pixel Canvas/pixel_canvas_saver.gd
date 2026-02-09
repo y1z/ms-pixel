@@ -8,7 +8,7 @@ enum SaveMode {
 }
 
 
-static func save(canvas:GdPixelCanvas, canvas_name:String, path:String, save_mode:SaveMode) -> bool:
+static func save(canvas: GdPixelCanvas, canvas_name: String, path: String, save_mode: SaveMode) -> bool:
 
 	var print_error_info := func(error_value: Error) -> void:
 		printerr("[ERR] : %s" % error_value);
@@ -34,14 +34,14 @@ static func save(canvas:GdPixelCanvas, canvas_name:String, path:String, save_mod
 			return true
 
 		SaveMode.SAVE_SIMPLE_PIXEL_FORMAT_TEXT:
-			var saver:PixelCanvasSaveFormat = PixelCanvasSaveFormat.new()
+			var saver: PixelCanvasSaveFormat = PixelCanvasSaveFormat.new()
 
 			if OK != saver.save_as_text(canvas.raw_image, canvas_name, path):
 				printerr("[ERR]: Saving failed")
 				return false
 
 		SaveMode.SAVE_SIMPLE_PIXEL_FORMAT_BINARY:
-			var saver:PixelCanvasSaveFormat = PixelCanvasSaveFormat.new()
+			var saver: PixelCanvasSaveFormat = PixelCanvasSaveFormat.new()
 
 			if OK != saver.save_as_binary(canvas.raw_image, canvas_name, PixelCanvasGlobals.save_dir):
 				printerr("[ERR]: Saving failed")
@@ -55,10 +55,10 @@ static func save(canvas:GdPixelCanvas, canvas_name:String, path:String, save_mod
 	return false
 
 
-static func load(canvas:GdPixelCanvas, canvas_name:String) -> bool:
+static func load(canvas: GdPixelCanvas, canvas_name: String) -> bool:
 	var file := FileAccess.get_file_as_string(PixelCanvasGlobals.save_dir + canvas_name)
 
-	var current_thing:= 0;
+	var current_thing := 0;
 
 	var color_to_be_added: Color;
 	while current_thing != -1:
@@ -72,18 +72,18 @@ static func load(canvas:GdPixelCanvas, canvas_name:String) -> bool:
 	return false
 
 
-static func convert_to_num(input_num:String,index:int) -> int:
-	const nums:= "0123456789";
-	var is_valid_num := func(str_nums:String,input_num_:String,index_:int) -> int:
+static func convert_to_num(input_num: String, index: int) -> int:
+	const nums := "0123456789";
+	var is_valid_num := func(str_nums: String, input_num_: String, index_: int) -> int:
 		var result := 0
 
 		for n in nums:
 			if n == input_num_[index_]:
 				return result
 
-		return -1
+		return - 1
 
-	var valid_num_index:int = is_valid_num.call(input_num,nums,index);
+	var valid_num_index: int = is_valid_num.call(input_num, nums, index);
 	var current_number = 1;
 	var iteration := 0
 
@@ -91,7 +91,7 @@ static func convert_to_num(input_num:String,index:int) -> int:
 		current_number = (current_number * 10) + (int(nums[valid_num_index]) - int("0"))
 		index = index + 1;
 
-		valid_num_index = is_valid_num.call(input_num,nums,index);
+		valid_num_index = is_valid_num.call(input_num, nums, index);
 
 	if iteration == 1:
 		current_number = current_number / 10

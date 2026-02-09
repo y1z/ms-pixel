@@ -1,12 +1,13 @@
 extends Node2D
-const DEFAULT_WIDTH:int = 128
-const DEFAULT_HEIGHT:int = 128
+
+const DEFAULT_WIDTH: int = 128
+const DEFAULT_HEIGHT: int = 128
 
 @export_group("VARIABLES")
+@export var scene_ui: SceneUI
+
 var raw_image: Image
 var image_texture: ImageTexture
-
-@export var scene_ui: SceneUI
 
 
 func _ready() -> void:
@@ -16,7 +17,7 @@ func _ready() -> void:
 
 	for i in raw_image.get_height():
 		for j in raw_image.get_width():
-			raw_image.set_pixel(i,j, Color.BLACK)
+			raw_image.set_pixel(i, j, Color.BLACK)
 
 	raw_image.get_used_rect()
 	image_texture = ImageTexture.create_from_image(raw_image);
@@ -35,7 +36,7 @@ func _input(event: InputEvent) -> void:
 func change_color(new_color: Color) -> void:
 	for i in raw_image.get_height():
 		for j in raw_image.get_width():
-			raw_image.set_pixel(i,j, new_color)
+			raw_image.set_pixel(i, j, new_color)
 
 		image_texture.set_image(raw_image)
 
@@ -61,7 +62,7 @@ func select_ui() -> void:
 			print_verbose("NOTE: NO SPECIFIC UI HAS BEEN MADE FOR THIS PLATFORMS = [%s]" % os_name)
 			scene_ui = %DesktopUi
 
-		"Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD","X11":
+		"Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD", "X11":
 			print_verbose("NOTE: NO SPECIFIC UI HAS BEEN MADE FOR THIS PLATFORMS = [%s]" % os_name)
 			scene_ui = %DesktopUi
 

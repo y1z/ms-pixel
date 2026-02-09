@@ -1,5 +1,5 @@
-extends Control
 class_name SceneUILUL
+extends Control
 
 @export_group("VARIABLES")
 @export var color_picker: ColorPicker
@@ -7,7 +7,7 @@ class_name SceneUILUL
 
 func _ready() -> void:
 	OS.get_name()
-	color_picker = %"color picker"
+	color_picker = % "color picker"
 	color_picker.visible = false
 
 

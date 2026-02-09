@@ -3,26 +3,28 @@ extends Camera2D
 ### BIT-FLAGS ENUM
 ### explanation https://youtu.be/FD8sEMIHPrs
 ## keeps track of what the camera can do in a given time
-enum CameraStates {NONE = 0,
- 	MOVE = (1 << 0),
- 	ZOOM = (1 << 1)}
+enum CameraStates {
+	NONE = 0,
+	MOVE = (1 << 0),
+	ZOOM = (1 << 1)
+}
 
-var last_position:Vector2 = Vector2(0,0)
-var start_click_position:Vector2 = Vector2(0,0)
-var end_click_position:Vector2 = Vector2(0,0)
-
-var click_delta:Vector2 = Vector2(0,0)
-var track_mouse_position:bool = false;
-var camera_function_state: CameraStates= CameraStates.NONE
-var zoom_increment_amount: float = 0.4
-
-const ZOOM_MAX:float = 50.0;
-const ZOOM_MIN:float = 0.01;
+const ZOOM_MAX: float = 50.0;
+const ZOOM_MIN: float = 0.01;
 
 ## controls how many times we can zoom in or out
 const ZOOM_AMOUNT_RANGES_SEGMENTS_COUNT: int = 8
 ## when to change how much does the camera zooms in or out
-const ZOOM_AMOUNT_RANGES:Array = [ZOOM_MAX,ZOOM_MAX / 2, 10.0,5.0,1.0, 0.1]
+const ZOOM_AMOUNT_RANGES: Array = [ZOOM_MAX, ZOOM_MAX / 2, 10.0, 5.0, 1.0, 0.1]
+
+var last_position: Vector2 = Vector2(0, 0)
+var start_click_position: Vector2 = Vector2(0, 0)
+var end_click_position: Vector2 = Vector2(0, 0)
+
+var click_delta: Vector2 = Vector2(0, 0)
+var track_mouse_position: bool = false;
+var camera_function_state: CameraStates = CameraStates.NONE
+var zoom_increment_amount: float = 0.4
 
 
 func _process(_delta: float) -> void:
@@ -44,12 +46,12 @@ func _process(_delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(InputNames.scroll_up,false,true):
+	if event.is_action_pressed(InputNames.scroll_up, false, true):
 		change_zoom_amount()
 		camera_function_state = camera_function_state | CameraStates.ZOOM as CameraStates
 		return
 
-	if event.is_action_pressed(InputNames.scroll_down,false,true):
+	if event.is_action_pressed(InputNames.scroll_down, false, true):
 		change_zoom_amount(-1)
 		camera_function_state = camera_function_state | CameraStates.ZOOM as CameraStates
 		return
@@ -70,7 +72,7 @@ func _input(event: InputEvent) -> void:
 func track_mouse_mode() -> void:
 	end_click_position = get_local_mouse_position();
 	click_delta = start_click_position - end_click_position;
-	self.position= last_position + click_delta
+	self.position = last_position + click_delta
 	pass
 
 

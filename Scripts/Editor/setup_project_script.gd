@@ -1,6 +1,6 @@
 @tool
-extends EditorScript
 class_name SetupProjectScript
+extends EditorScript
 
 const proj_dirs := [
 	"res://Entities",
@@ -38,7 +38,7 @@ func generate_directories() -> bool:
 
 	var result: bool = false
 
-	for d:String in proj_dirs:
+	for d: String in proj_dirs:
 		if not DirAccess.dir_exists_absolute(d):
 			var err := DirAccess.make_dir_recursive_absolute(d)
 
