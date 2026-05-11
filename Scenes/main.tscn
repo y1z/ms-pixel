@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://w1gtjx2reli1" path="res://Scenes/UI/fps_counter.tscn" id="5_6bp64"]
 [ext_resource type="PackedScene" uid="uid://dho8n6ljfikmk" path="res://Scenes/UI/debug_text.tscn" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://dmpfwwg1ds5m8" path="res://Scenes/UI/desktop_ui.tscn" id="6_344ge"]
+[ext_resource type="Script" uid="uid://c2t0vrvirlh7s" path="res://Scripts/Database/init_db.gd" id="7_6bp64"]
 [ext_resource type="PackedScene" uid="uid://b0y72jva17rmj" path="res://Entities/pixel_canvas.tscn" id="7_344ge"]
 
 [node name="Main" type="Node2D" unique_id=2133453975]
@@ -57,3 +58,6 @@ offset_bottom = 683.0
 [node name="PixelCanvas" parent="." unique_id=584826270 instance=ExtResource("7_344ge")]
 unique_name_in_owner = true
 position = Vector2(17.56, 0)
+
+[node name="database" type="Node" parent="." unique_id=1790269157]
+script = ExtResource("7_6bp64")
